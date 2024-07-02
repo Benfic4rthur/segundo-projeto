@@ -40,11 +40,15 @@ export class AppComponent {
   }
 
   atualizarValor(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
+    const inputElement = (event.target as HTMLInputElement);
     this.infos.value = inputElement.value;
+    //ou
+    // const inputElement = (event.target as HTMLInputElement).value;
+    // this.infos.value = inputElement;
   }
 
   limparInput() {
+    if(this.infos.value === '') return
     const userConfirmed = confirm(`Deseja limpar o campo?`);
     if (userConfirmed) {
       this.infos.value = '';
